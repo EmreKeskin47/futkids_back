@@ -3,7 +3,11 @@ const server = express();
 const bodyParser = require("body-parser");
 
 async function runServer() {
-    await require("./db").connect();
+    //await require("./db").connect();
+
+    //for populating the db with fake players
+    await require("./populate");
+
     server.use(bodyParser.json());
     server.get("", (req, res) => res.send("Welcome to FUTKIDS"));
     server.use("/api/v1/player", require("./routes/player"));
