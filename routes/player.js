@@ -29,4 +29,29 @@ router.post("/", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+//Patch method for api/v1/player/id, updated player is returned as response
+router.patch("/:id", (req, res) => {
+    Player.findById(req.params.id)
+        .then((player) => {
+            player.playerName = req.body.playerName;
+            player.playerPosition = req.body.playerPosition;
+            player.overall = req.body.overall;
+
+            return player.save();
+        })
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((err) => console.log(err));
+});
+
+//Delete method for api/v1/player/id, deleted player is returned as response
+router.delete("/:id", (req, res) => {
+    Player.findByIdAndRemove(req.params.id)
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((err) => console.log(err));
+});
+
 module.exports = router;
