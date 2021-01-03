@@ -54,4 +54,10 @@ router.delete("/:id", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+//Get Method for getting detailed info of the player
+router.get("/:id", (req, res) => {
+    Player.findById(req.params.id)
+        .then((player) => res.send(player))
+        .catch((err) => console.log(err));
+});
 module.exports = router;
