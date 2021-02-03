@@ -10,6 +10,7 @@ class FakeDB {
         await Player.create(fakePlayers.player1);
         await Player.create(fakePlayers.player2);
         await Player.create(fakePlayers.player3);
+        await Player.create(fakePlayers.player4);
     }
 
     async populate() {

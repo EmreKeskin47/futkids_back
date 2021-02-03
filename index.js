@@ -1,10 +1,13 @@
 const express = require("express");
 const server = express();
+const cors = require("cors");
 const bodyParser = require("body-parser");
 
 async function runServer() {
-    //await require("./db").connect();
+    //CORS Policy
+    server.use(cors());
 
+    //await require("./db").connect();
     //for populating the db with fake players
     await require("./populate");
 
