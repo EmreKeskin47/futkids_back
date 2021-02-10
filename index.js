@@ -16,6 +16,7 @@ async function runServer() {
     server.get("", (req, res) => res.send("Welcome to FUTKIDS"));
     server.use("/api/v1/playerCard", require("./routes/playerCardRoute"));
     server.use("/api/v1/attributes", require("./routes/playerAttributeRoute"));
+    server.use("/api/v1/statistics", require("./routes/PlayerStatisticsRoute"));
 
     const PORT = 3000;
     server.listen(PORT, (err) => {

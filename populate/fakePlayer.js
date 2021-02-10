@@ -46,5 +46,29 @@ var fakeAttributes = {
     },
 };
 
+var fakeStats = {
+    stat1: {
+        playerID: faker.lorem.word(),
+        goals: faker.random.number(),
+        assists: faker.random.number(),
+        red: faker.random.number(),
+        yellow: faker.random.number(),
+        motm: faker.random.number(),
+        cleanSheet: faker.random.number(),
+        form: faker.random.word(),
+    },
+    stat2: {
+        playerID: faker.lorem.word(),
+        goals: faker.random.number(),
+        assists: faker.random.number(),
+        red: faker.random.number(),
+        yellow: faker.random.number(),
+        motm: faker.random.number(),
+        cleanSheet: faker.random.number(),
+        form: faker.random.word(),
+    },
+};
+
 module.exports = fakePlayers;
 module.exports = fakeAttributes;
+module.exports = fakeStats;

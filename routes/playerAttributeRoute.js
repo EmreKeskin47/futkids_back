@@ -68,4 +68,5 @@ router.get("/:id", (req, res) => {
         .then((playerAtt) => res.send(playerAtt))
         .catch((err) => console.log(err));
 });
+
 module.exports = router;

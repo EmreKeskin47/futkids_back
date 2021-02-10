@@ -1,11 +1,15 @@
 const PlayerAttributes = require("../db/models/playerAttributes");
 const PlayerCard = require("../db/models/playerCard");
+const PlayerStatistics = require("../db/models/playerStatistics");
+
 const fakePlayers = require("./fakePlayer");
 const fakeAttributes = require("./fakePlayer");
+const fakeStats = require("./fakePlayer");
 
 class FakeDB {
     async clean() {
         await PlayerCard.deleteMany({});
+        await PlayerAttributes.deleteMany({});
         await PlayerAttributes.deleteMany({});
     }
 
@@ -16,6 +20,8 @@ class FakeDB {
         await PlayerCard.create(fakePlayers.player4);
         await PlayerAttributes.create(fakeAttributes.att1);
         await PlayerAttributes.create(fakeAttributes.att2);
+        await PlayerStatistics.create(fakeStats.stat1);
+        await PlayerStatistics.create(fakeStats.stat2);
     }
 
     async populate() {
