@@ -14,9 +14,10 @@ async function runServer() {
     server.use(bodyParser.json());
     //Middleware between endpoints and routes
     server.get("", (req, res) => res.send("Welcome to FUTKIDS"));
-    server.use("/api/v1/playerCard", require("./routes/playerCardRoute"));
-    server.use("/api/v1/attributes", require("./routes/playerAttributeRoute"));
-    server.use("/api/v1/statistics", require("./routes/PlayerStatisticsRoute"));
+    server.use("/api/v1/playerCard", require("./routes/playerCard"));
+    server.use("/api/v1/attributes", require("./routes/playerAttribute"));
+    server.use("/api/v1/statistics", require("./routes/playerStatistics"));
+    server.use("/api/v1/details", require("./routes/playerDetails"));
 
     const PORT = 3000;
     server.listen(PORT, (err) => {

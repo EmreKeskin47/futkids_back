@@ -25,7 +25,7 @@ var fakePlayers = {
 
 var fakeAttributes = {
     att1: {
-        playerID: faker.lorem.word(),
+        playerID: 12,
         pace: faker.random.number(),
         shooting: faker.random.number(),
         passing: faker.random.number(),
@@ -35,7 +35,7 @@ var fakeAttributes = {
         goalKeeper: faker.random.number(),
     },
     att2: {
-        playerID: faker.lorem.word(),
+        playerID: 13,
         pace: faker.random.number(),
         shooting: faker.random.number(),
         passing: faker.random.number(),
@@ -48,7 +48,7 @@ var fakeAttributes = {
 
 var fakeStats = {
     stat1: {
-        playerID: faker.lorem.word(),
+        playerID: 12,
         goals: faker.random.number(),
         assists: faker.random.number(),
         red: faker.random.number(),
@@ -58,7 +58,7 @@ var fakeStats = {
         form: faker.random.word(),
     },
     stat2: {
-        playerID: faker.lorem.word(),
+        playerID: 13,
         goals: faker.random.number(),
         assists: faker.random.number(),
         red: faker.random.number(),
