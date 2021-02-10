@@ -10,15 +10,6 @@ const PlayerAttributesSchema = new Schema({
     defending: { type: Number, required: true },
     physical: { type: Number, required: true },
     goalKeeper: { type: Number, required: true },
-    /*
-    //Statics
-    matchesPlayed: { type: Number, required: true },
-    minutesPlayed: { type: Number, required: true },
-    noOfGoals: { type: Number, required: true },
-    noOfAssists: { type: Number, required: true },
-    noOfRed: { type: Number, required: true },
-    noOfYellow: { type: Number, required: true },
-    */
 });
 
 //export model
