@@ -19,6 +19,8 @@ router.post("", (req, res) => {
         name: req.body.name,
         position: req.body.position,
         overall: req.body.overall,
+        foot: req.body.foot,
+        age: req.body.age,
     });
 
     newPlayerCard
@@ -39,6 +41,8 @@ router.patch("/:id", (req, res) => {
             playerCard.player = req.body.player;
             playerCard.position = req.body.position;
             playerCard.overall = req.body.overall;
+            playerCard.foot = req.body.foot;
+            playerCard.age = req.body.age;
 
             return playerCard.save();
         })

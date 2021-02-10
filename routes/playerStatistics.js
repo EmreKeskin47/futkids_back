@@ -24,6 +24,7 @@ router.post("", (req, res) => {
         motm: req.body.motm,
         cleanSheet: req.body.cleanSheet,
         form: req.body.form,
+        playedMatches: req.body.playedMatches,
     });
 
     newPlayerStats
@@ -49,6 +50,7 @@ router.patch("/:id", async (req, res) => {
         motm: req.body.motm,
         cleanSheet: req.body.cleanSheet,
         form: req.body.form,
+        playedMatches: req.body.playedMatches,
     };
     let playerStatistics = await PlayerStatistics.findOneAndUpdate(
         filter,

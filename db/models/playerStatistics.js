@@ -10,6 +10,7 @@ const PlayerStatisticsSchema = new Schema({
     motm: { type: Number },
     cleanSheet: { type: Number },
     form: { type: String },
+    playedMatches: { type: String },
 });
 
 //export model

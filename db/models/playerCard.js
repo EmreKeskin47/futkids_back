@@ -8,6 +8,8 @@ const PlayerCardSchema = new Schema({
     overall: { type: Number, required: true },
     image: { type: String },
     kitNumber: { type: Number },
+    foot: { type: String },
+    age: { type: Number },
 });
 
 //export model
