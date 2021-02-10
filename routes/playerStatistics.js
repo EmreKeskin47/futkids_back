@@ -14,7 +14,7 @@ router.get("", (req, res) => {
 });
 
 //post method for api/v1/statistics, new player statistics is returned as response
-router.post("/", (req, res) => {
+router.post("", (req, res) => {
     const newPlayerStats = new PlayerStatistics({
         playerID: req.body.playerID,
         goals: req.body.goals,

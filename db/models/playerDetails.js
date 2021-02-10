@@ -1,7 +1,4 @@
 const mongoose = require("mongoose");
-const PlayerAttributes = require("./playerAttributes");
-const PlayerCard = require("./playerCard");
-const PlayerStatistics = require("./playerStatistics");
 const { Schema } = mongoose;
 
 const PlayerDetailsSchema = new Schema({
@@ -10,9 +7,9 @@ const PlayerDetailsSchema = new Schema({
     email: String,
     height: { type: Number, required: true },
     weight: { type: Number, required: true },
-    playerCard: PlayerCard,
-    attributes: PlayerAttributes,
-    statistics: PlayerStatistics,
+    playerCardId: { type: String },
+    attributesId: { type: String },
+    statisticsId: { type: String },
 });
 
 //export model

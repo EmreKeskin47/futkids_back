@@ -1,22 +1,26 @@
 const faker = require("faker");
 
-var fakePlayers = {
+var fakePlayerCards = {
     player1: {
+        playerID: "13",
         name: faker.name.findName(),
         position: faker.lorem.word(),
         overall: faker.random.number(),
     },
     player2: {
+        playerID: "13",
         name: faker.name.findName(),
         position: faker.lorem.word(),
         overall: faker.random.number(),
     },
     player3: {
+        playerID: "13",
         name: faker.name.findName(),
         position: faker.lorem.word(),
         overall: faker.random.number(),
     },
     player4: {
+        playerID: "13",
         name: faker.name.findName(),
         position: faker.lorem.word(),
         overall: faker.random.number(),
@@ -25,7 +29,7 @@ var fakePlayers = {
 
 var fakeAttributes = {
     att1: {
-        playerID: 12,
+        playerID: "12",
         pace: faker.random.number(),
         shooting: faker.random.number(),
         passing: faker.random.number(),
@@ -35,7 +39,7 @@ var fakeAttributes = {
         goalKeeper: faker.random.number(),
     },
     att2: {
-        playerID: 13,
+        playerID: "13",
         pace: faker.random.number(),
         shooting: faker.random.number(),
         passing: faker.random.number(),
@@ -48,7 +52,7 @@ var fakeAttributes = {
 
 var fakeStats = {
     stat1: {
-        playerID: 12,
+        playerID: "12",
         goals: faker.random.number(),
         assists: faker.random.number(),
         red: faker.random.number(),
@@ -58,7 +62,7 @@ var fakeStats = {
         form: faker.random.word(),
     },
     stat2: {
-        playerID: 13,
+        playerID: "13",
         goals: faker.random.number(),
         assists: faker.random.number(),
         red: faker.random.number(),
@@ -69,6 +73,4 @@ var fakeStats = {
     },
 };
 
-module.exports = fakePlayers;
-module.exports = fakeAttributes;
-module.exports = fakeStats;
+module.exports = { fakePlayerCards, fakeAttributes, fakeStats };

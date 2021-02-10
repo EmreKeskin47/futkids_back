@@ -14,10 +14,10 @@ router.get("", (req, res) => {
 });
 
 //post method for api/v1/player, new player is returned as response
-router.post("/", (req, res) => {
+router.post("", (req, res) => {
     const newPlayerCard = new PlayerCard({
-        playerName: req.body.playerName,
-        playerPosition: req.body.playerPosition,
+        name: req.body.name,
+        position: req.body.position,
         overall: req.body.overall,
     });
 
@@ -36,8 +36,8 @@ router.post("/", (req, res) => {
 router.patch("/:id", (req, res) => {
     PlayerCard.findById(req.params.id)
         .then((playerCard) => {
-            playerCard.playerName = req.body.playerName;
-            playerCard.playerPosition = req.body.playerPosition;
+            playerCard.player = req.body.player;
+            playerCard.position = req.body.position;
             playerCard.overall = req.body.overall;
 
             return playerCard.save();

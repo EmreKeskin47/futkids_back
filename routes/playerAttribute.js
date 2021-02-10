@@ -14,7 +14,7 @@ router.get("", (req, res) => {
 });
 
 //post method for api/v1/attributes, new player attribute is returned as response
-router.post("/", (req, res) => {
+router.post("", (req, res) => {
     const newPlayerAttribute = new PlayerAttributes({
         playerID: req.body.playerID,
         pace: req.body.pace,
@@ -41,6 +41,7 @@ router.post("/", (req, res) => {
 router.patch("/:id", async (req, res) => {
     const filter = { playerID: req.params.id };
     const update = {
+        playerID: req.params.id,
         pace: req.body.pace,
         shooting: req.body.shooting,
         passing: req.body.passing,
