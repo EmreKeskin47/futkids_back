@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const PlayerSchema = new Schema({
+const PlayerCardSchema = new Schema({
     //Base Stats
-    playerName: { type: String, required: true },
-    playerPosition: { type: String, required: true },
+    name: { type: String, required: true },
+    position: { type: String, required: true },
     overall: { type: Number, required: true },
+    image: { type: String },
+    kitNumber: { type: Number },
     //Attribute Details
     /*
     pace: { type: Number, required: true },
@@ -25,4 +27,4 @@ const PlayerSchema = new Schema({
 });
 
 //export model
-module.exports = mongoose.model("Player", PlayerSchema);
+module.exports = mongoose.model("PlayerCard", PlayerCardSchema);

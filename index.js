@@ -13,7 +13,7 @@ async function runServer() {
 
     server.use(bodyParser.json());
     server.get("", (req, res) => res.send("Welcome to FUTKIDS"));
-    server.use("/api/v1/player", require("./routes/player"));
+    server.use("/api/v1/player", require("./routes/playerCardRoute"));
 
     const PORT = 3000;
     server.listen(PORT, (err) => {

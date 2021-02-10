@@ -1,16 +1,16 @@
-const Player = require("../db/models/player");
+const PlayerCard = require("../db/models/playerCard");
 const fakePlayers = require("./fakePlayer");
 
 class FakeDB {
     async clean() {
-        await Player.deleteMany({});
+        await PlayerCard.deleteMany({});
     }
 
     async addData() {
-        await Player.create(fakePlayers.player1);
-        await Player.create(fakePlayers.player2);
-        await Player.create(fakePlayers.player3);
-        await Player.create(fakePlayers.player4);
+        await PlayerCard.create(fakePlayers.player1);
+        await PlayerCard.create(fakePlayers.player2);
+        await PlayerCard.create(fakePlayers.player3);
+        await PlayerCard.create(fakePlayers.player4);
     }
 
     async populate() {
