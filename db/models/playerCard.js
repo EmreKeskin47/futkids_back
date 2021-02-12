@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const PlayerCardSchema = new Schema({
-    playerID: { type: String, required: true },
     name: { type: String, required: true },
     position: { type: String, required: true },
     overall: { type: Number, required: true },
@@ -12,5 +11,4 @@ const PlayerCardSchema = new Schema({
     age: { type: Number },
 });
 
-//export model
 module.exports = mongoose.model("PlayerCard", PlayerCardSchema);

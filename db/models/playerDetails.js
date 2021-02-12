@@ -12,5 +12,4 @@ const PlayerDetailsSchema = new Schema({
     statisticsId: { type: String },
 });
 
-//export model
 module.exports = mongoose.model("PlayerDetails", PlayerDetailsSchema);

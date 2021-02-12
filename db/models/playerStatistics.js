@@ -13,5 +13,4 @@ const PlayerStatisticsSchema = new Schema({
     playedMatches: { type: String },
 });
 
-//export model
 module.exports = mongoose.model("PlayerStatistics", PlayerStatisticsSchema);

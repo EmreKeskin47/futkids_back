@@ -4,25 +4,25 @@ var fakePlayerCards = {
     player1: {
         playerID: "13",
         name: faker.name.findName(),
-        position: faker.lorem.word(),
+        position: "DEF",
         overall: faker.random.number(),
     },
     player2: {
         playerID: "13",
         name: faker.name.findName(),
-        position: faker.lorem.word(),
+        position: "MID",
         overall: faker.random.number(),
     },
     player3: {
         playerID: "13",
         name: faker.name.findName(),
-        position: faker.lorem.word(),
+        position: "ATT",
         overall: faker.random.number(),
     },
     player4: {
         playerID: "13",
         name: faker.name.findName(),
-        position: faker.lorem.word(),
+        position: "DEF",
         overall: faker.random.number(),
     },
 };

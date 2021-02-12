@@ -12,5 +12,4 @@ const PlayerAttributesSchema = new Schema({
     goalKeeper: { type: Number, required: true },
 });
 
-//export model
 module.exports = mongoose.model("PlayerAttributes", PlayerAttributesSchema);
