@@ -10,7 +10,7 @@ const PlayerStatisticsSchema = new Schema({
     motm: { type: Number },
     cleanSheet: { type: Number },
     form: { type: String },
-    playedMatches: { type: String },
+    playedMatches: { type: Number },
 });
 
 module.exports = mongoose.model("PlayerStatistics", PlayerStatisticsSchema);

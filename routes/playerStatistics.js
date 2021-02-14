@@ -14,20 +14,37 @@ router.get("", (req, res) => {
 });
 
 //post method for api/v1/statistics, new player statistics is returned as response
-router.post("", (req, res) => {
-    const newPlayerStats = new PlayerStatistics({
-        playerID: req.body.playerID,
-        goals: req.body.goals,
-        assists: req.body.assists,
-        red: req.body.red,
-        yellow: req.body.yellow,
-        motm: req.body.motm,
-        cleanSheet: req.body.cleanSheet,
-        form: req.body.form,
-        playedMatches: req.body.playedMatches,
-    });
-
-    newPlayerStats
+router.post("", async (req, res) => {
+    //if the player already has stats, new stats must be summed with old one
+    const filter = { playerID: req.params.id };
+    let newStats;
+    let oldStats = await PlayerStatistics.findOne(filter);
+    if (oldStats) {
+        newStats = new PlayerStatistics({
+            playerID: req.body.playerID,
+            goals: req.body.goals + oldStats.goals,
+            assists: req.body.assists + oldStats.assists,
+            red: req.body.red + oldStats.red,
+            yellow: req.body.yellow + oldStats.yellow,
+            motm: req.body.motm + oldStats.motm,
+            cleanSheet: req.body.cleanSheet + oldStats.cleanSheet,
+            form: req.body.form,
+            playedMatches: req.body.playedMatches + oldStats.playedMatches,
+        });
+    } else {
+        newStats = new PlayerStatistics({
+            playerID: req.body.playerID,
+            goals: req.body.goals,
+            assists: req.body.assists,
+            red: req.body.red,
+            yellow: req.body.yellow,
+            motm: req.body.motm,
+            cleanSheet: req.body.cleanSheet,
+            form: req.body.form,
+            playedMatches: req.body.playedMatches,
+        });
+    }
+    newStats
         .save()
         .then((result) => {
             res.send({
