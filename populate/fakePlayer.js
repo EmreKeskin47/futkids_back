@@ -60,6 +60,7 @@ var fakeStats = {
         motm: faker.random.number(),
         cleanSheet: faker.random.number(),
         form: faker.random.word(),
+        playedMatches: faker.random.number(),
     },
     stat2: {
         playerID: "13",
@@ -70,7 +71,14 @@ var fakeStats = {
         motm: faker.random.number(),
         cleanSheet: faker.random.number(),
         form: faker.random.word(),
+        playedMatches: faker.random.number(),
     },
 };
 
-module.exports = { fakePlayerCards, fakeAttributes, fakeStats };
+const fakePlayer = {
+    playerID: "13",
+    username: "test",
+    password: "test",
+};
+
+module.exports = { fakePlayerCards, fakeAttributes, fakeStats, fakePlayer };

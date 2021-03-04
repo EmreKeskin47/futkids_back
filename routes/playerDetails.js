@@ -18,10 +18,11 @@ router.get("", (req, res) => {
 
 //post method for api/v1/details, new player details is returned as response
 router.post("", async (req, res) => {
-    const filter = { playerID: req.body.playerID };
-    let cardId = await PlayerCard.findOne(filter, { new: true });
-    let attId = await PlayerAttributes.findOne(filter, { new: true });
-    let statsId = await PlayerStatistics.findOne(filter, { new: true });
+    const filter1 = { _id: req.body.playerID };
+    const filter2 = { playerID: req.body.playerID };
+    let cardId = await PlayerCard.findOne(filter1, { new: true });
+    let attId = await PlayerAttributes.findOne(filter2, { new: true });
+    let statsId = await PlayerStatistics.findOne(filter2, { new: true });
 
     const newPlayerDetails = new PlayerDetails({
         playerID: req.body.playerID,

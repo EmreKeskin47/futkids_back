@@ -2,14 +2,21 @@ const PlayerAttributes = require("../db/models/playerAttributes");
 const PlayerCard = require("../db/models/playerCard");
 const PlayerStatistics = require("../db/models/playerStatistics");
 const PlayerDetails = require("../db/models/playerDetails");
+const Player = require("../db/models/player");
 
-const { fakePlayerCards, fakeAttributes, fakeStats } = require("./fakePlayer");
+const {
+    fakePlayerCards,
+    fakeAttributes,
+    fakeStats,
+    fakePlayer,
+} = require("./fakePlayer");
 
 class FakeDB {
     async clean() {
         await PlayerCard.deleteMany({});
         await PlayerAttributes.deleteMany({});
         await PlayerStatistics.deleteMany({});
+        await Player.deleteMany({});
     }
 
     async addData() {
@@ -21,6 +28,7 @@ class FakeDB {
         await PlayerAttributes.create(fakeAttributes.att2);
         await PlayerStatistics.create(fakeStats.stat1);
         await PlayerStatistics.create(fakeStats.stat2);
+        await Player.create(fakePlayer);
     }
 
     async populate() {

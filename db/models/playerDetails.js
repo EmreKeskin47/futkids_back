@@ -7,9 +7,7 @@ const PlayerDetailsSchema = new Schema({
     email: String,
     height: { type: Number, required: true },
     weight: { type: Number, required: true },
-    playerCardId: { type: String },
-    attributesId: { type: String },
-    statisticsId: { type: String },
+    nation: { type: String },
 });
 
 module.exports = mongoose.model("PlayerDetails", PlayerDetailsSchema);
