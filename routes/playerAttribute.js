@@ -70,4 +70,12 @@ router.get("/:id", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+router.delete("/:id", (req, res) => {
+    PlayerAttributes.findByIdAndRemove(req.params.id)
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((err) => console.log(err));
+});
+
 module.exports = router;

@@ -16,6 +16,7 @@ router.get("", (req, res) => {
 //post method for api/v1/playerCard, new player card is returned as response
 router.post("", (req, res) => {
     const newPlayerCard = new PlayerCard({
+        playerID: req.body.playerID,
         name: req.body.name,
         position: req.body.position,
         overall: req.body.overall,
@@ -38,7 +39,6 @@ router.post("", (req, res) => {
 
 //Patch method for api/v1/playerCard/id, updated player card is returned as response
 router.patch("/:id", (req, res) => {
-    console.log(req.body);
     PlayerCard.findById(req.params.id)
         .then((playerCard) => {
             playerCard.playerID = req.body.playerID;

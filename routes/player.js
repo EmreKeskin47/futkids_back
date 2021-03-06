@@ -16,8 +16,9 @@ router.get("", (req, res) => {
 //post method for api/v1/player, new player is returned as response
 router.post("", (req, res) => {
     const newPlayer = new Player({
-        username: req.body.username,
-        password: req.body.password,
+        email: req.body.email,
+        playerCardID: req.body.playerCardID,
+        playerAttributeID: req.body.playerAttributeID,
     });
 
     newPlayer
@@ -35,8 +36,10 @@ router.post("", (req, res) => {
 router.patch("/:id", (req, res) => {
     Player.findById(req.params.id)
         .then((player) => {
-            player.username = req.body.username;
-            player.password = req.body.password;
+            player.email = req.body.email;
+            player.playerCardID = req.body.playerCardID;
+            player.playerAttributeID = req.body.playerAttributeID;
+
             return player.save();
         })
         .then((result) => {
