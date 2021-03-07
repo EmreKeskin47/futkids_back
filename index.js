@@ -7,9 +7,9 @@ async function runServer() {
     //CORS Policy
     server.use(cors());
 
-    //await require("./db").connect();
+    await require("./db").connect();
     //for populating the db with fake players
-    await require("./populate");
+    //await require("./populate");
 
     server.use(bodyParser.json());
     //Middleware between endpoints and routes

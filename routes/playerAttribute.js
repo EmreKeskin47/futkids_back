@@ -71,10 +71,9 @@ router.get("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-    PlayerAttributes.findByIdAndRemove(req.params.id)
-        .then((result) => {
-            res.send(result);
-        })
+    const filter = { playerID: req.params.id };
+    PlayerAttributes.findOneAndRemove(filter)
+        .then((playerAttr) => res.send(playerAttr))
         .catch((err) => console.log(err));
 });
 

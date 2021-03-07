@@ -33,7 +33,7 @@ class FakeDB {
 
     async populate() {
         await this.clean();
-        await this.addData();
+        //await this.addData();
     }
 }
 

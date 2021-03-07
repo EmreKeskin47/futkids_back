@@ -38,38 +38,40 @@ router.post("", (req, res) => {
 });
 
 //Patch method for api/v1/playerCard/id, updated player card is returned as response
-router.patch("/:id", (req, res) => {
-    PlayerCard.findById(req.params.id)
-        .then((playerCard) => {
-            playerCard.playerID = req.body.playerID;
-            playerCard.name = req.body.name;
-            playerCard.position = req.body.position;
-            playerCard.overall = req.body.overall;
-            playerCard.image = req.body.image;
-            playerCard.kitNumber = req.body.kitNumber;
-            playerCard.foot = req.body.foot;
-            playerCard.age = req.body.age;
-
-            return playerCard.save();
-        })
-        .then((result) => {
-            res.send(result);
-        })
-        .catch((err) => console.log(err));
+router.patch("/:id", async (req, res) => {
+    const filter = { playerID: req.params.id };
+    const update = {
+        playerID: req.params.id,
+        name: req.body.name,
+        position: req.body.position,
+        overall: req.body.overall,
+        image: req.body.image,
+        kitNumber: req.body.kitNumber,
+        foot: req.body.foot,
+        age: req.body.age,
+    };
+    let updatedCard = await PlayerCard.findOneAndUpdate(filter, update, {
+        new: true,
+    });
+    try {
+        res.send(updatedCard);
+    } catch (err) {
+        console.log(err);
+    }
 });
 
 //Delete method for api/v1/playerCard/id, deleted player card is returned as response
 router.delete("/:id", (req, res) => {
-    PlayerCard.findByIdAndRemove(req.params.id)
-        .then((result) => {
-            res.send(result);
-        })
+    const filter = { playerID: req.params.id };
+    PlayerCard.findOneAndRemove(filter)
+        .then((playerCard) => res.send(playerCard))
         .catch((err) => console.log(err));
 });
 
 //Get Method for getting detailed info of the player card
 router.get("/:id", (req, res) => {
-    PlayerCard.findById(req.params.id)
+    const filter = { playerID: req.params.id };
+    PlayerCard.findOne(filter)
         .then((playerCard) => res.send(playerCard))
         .catch((err) => console.log(err));
 });
