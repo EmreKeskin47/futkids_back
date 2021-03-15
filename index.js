@@ -17,7 +17,6 @@ async function runServer() {
     server.use("/api/v1/playerCard", require("./routes/playerCard"));
     server.use("/api/v1/attribute", require("./routes/playerAttribute"));
     server.use("/api/v1/statistic", require("./routes/playerStatistics"));
-    server.use("/api/v1/detail", require("./routes/playerDetails"));
     server.use("/api/v1/player", require("./routes/player"));
 
     const PORT = 3000;
