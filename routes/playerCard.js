@@ -24,6 +24,7 @@ router.post("", (req, res) => {
         kitNumber: req.body.kitNumber,
         foot: req.body.foot,
         age: req.body.age,
+        weeklyVote: 0,
     });
 
     newPlayerCard
@@ -74,5 +75,21 @@ router.get("/:id", (req, res) => {
     PlayerCard.findOne(filter)
         .then((playerCard) => res.send(playerCard))
         .catch((err) => console.log(err));
+});
+
+//Post for weekly vote
+router.post("/:id", async (req, res) => {
+    const filter = { playerID: req.params.id };
+    const oldVote = await PlayerCard.findOne(filter);
+    const update = { weeklyVote: oldVote.weeklyVote + req.body.voteWeight };
+
+    let updatedVote = await PlayerCard.findOneAndUpdate(filter, update, {
+        new: true,
+    });
+    try {
+        res.send(updatedVote);
+    } catch (err) {
+        console.log(err);
+    }
 });
 module.exports = router;

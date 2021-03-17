@@ -10,6 +10,7 @@ const PlayerCardSchema = new Schema({
     kitNumber: { type: String },
     foot: { type: String },
     age: { type: String },
+    weeklyVote: { type: Number },
 });
 
 module.exports = mongoose.model("PlayerCard", PlayerCardSchema);
