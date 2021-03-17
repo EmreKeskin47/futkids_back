@@ -49,14 +49,15 @@ router.patch("/:id", async (req, res) => {
     const oldStats = await PlayerStatistics.findOne(filter);
     const update = {
         playerID: req.body.playerID,
-        goals: req.body.goals + oldStats.goals,
-        assists: req.body.assists + oldStats.assists,
-        red: req.body.red + oldStats.red,
-        yellow: req.body.yellow + oldStats.yellow,
-        motm: req.body.motm + oldStats.motm,
-        cleanSheet: req.body.cleanSheet + oldStats.cleanSheet,
+        goals: parseInt(req.body.goals) + oldStats.goals,
+        assists: parseInt(req.body.assists) + oldStats.assists,
+        red: parseInt(req.body.red) + oldStats.red,
+        yellow: parseInt(req.body.yellow) + oldStats.yellow,
+        motm: parseInt(req.body.motm) + oldStats.motm,
+        cleanSheet: parseInt(req.body.cleanSheet) + oldStats.cleanSheet,
         form: req.body.form,
-        playedMatches: req.body.playedMatches + oldStats.playedMatches,
+        playedMatches:
+            parseInt(req.body.playedMatches) + oldStats.playedMatches,
     };
     let playerStatistics = await PlayerStatistics.findOneAndUpdate(
         filter,
